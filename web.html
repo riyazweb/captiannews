@@ -40,9 +40,17 @@
             scroll-snap-align: start;
         }
         
-        @media (max-width: 767px) {
+         @media screen and (max-width: 767px) {
     .reelsContainer {
-        width: 90vw; /* Change width to 90vw for smartphones */
+        height: 200vh; /* Increase height to 100vh */
+        width: 200vw; /* Full width of screen */
+        margin-top: 60px; /* Add space from top */
+        margin-left: 40px; /* Add space from left */
+    }
+
+    .reel {
+        min-height: 200vh; /* Increase height to 100vh */
+        min-width: 200vw; /* Full width of screen */
     }
 }
 

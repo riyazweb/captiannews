@@ -52,17 +52,16 @@
 
     <script>
         // Function to fetch images from a folder
-        function fetchImagesFromFolder(folderName) {
+        function fetchImagesFromFolder(folderName, numImages) {
             let reelsContainer = document.getElementById("reelsContainer");
-            let numImages = reelsContainer.childElementCount; // Get the number of child elements currently present
-    
+        
             // Loop to create image elements in reverse order
-            for (let i = numImages + 1; i >= 1; i--) {
+            for (let i = numImages; i >= 1; i--) {
                 let imgSrc = `${folderName}/image${i}.png`;
-                let imgAlt = `Image ${i + 1}`; // Increment the auto number by 1
+                let imgAlt = `Image ${i}`;
                 let reel = document.createElement("div");
                 reel.className = "reel";
-    
+        
                 // Create an image element
                 let img = document.createElement("img");
                 img.src = imgSrc;
@@ -71,25 +70,29 @@
                     // Set a default image when the actual image fails to load
                     this.src = "riyaz.png";
                 };
-    
+        
                 reel.appendChild(img);
                 reelsContainer.appendChild(reel);
             }
-    
+        
             // Create an image element for "riyaz.png" and append it to reelsContainer
             let riyazImg = document.createElement("img");
             riyazImg.src = `riyaz.png`;
             riyazImg.alt = "Riyaz";
+            riyazImg.onerror = function() {
+                // Set a default image when the actual image fails to load
+                this.src = "riyaz.png";
+            };
             let riyazReel = document.createElement("div");
             riyazReel.className = "reel";
             riyazReel.appendChild(riyazImg);
             reelsContainer.appendChild(riyazReel);
         }
-    
-        // Call the function with folder name
-        fetchImagesFromFolder("techy"); // Replace "update" with your actual folder name
-    </script>
-    
+        
+        // Call the function with folder name and number of images
+        fetchImagesFromFolder("techy", 25); // Replace "update" with your actual folder name and 2 with the number of images you have
+        </script>
+        
         
 
 

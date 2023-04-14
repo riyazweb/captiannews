@@ -54,41 +54,36 @@
         // Function to fetch images from a folder
         function fetchImagesFromFolder(folderName) {
             let reelsContainer = document.getElementById("reelsContainer");
+            let numImages = reelsContainer.childElementCount; // Get the number of child elements currently present
     
-            // Fetch all the images from the folder
-            fetch(`${folderName}/images.json`)
-                .then(response => response.json())
-                .then(images => {
-                    // Loop to create image elements in reverse order
-                    for (let i = images.length + 1; i >= 1; i--) {
-                        let imgSrc = `${folderName}/image${i}.png`;
-                        let imgAlt = `Image ${i + 1}`; // Increment the auto number by 1
-                        let reel = document.createElement("div");
-                        reel.className = "reel";
+            // Loop to create image elements in reverse order
+            for (let i = numImages + 1; i >= 1; i--) {
+                let imgSrc = `${folderName}/image${i}.png`;
+                let imgAlt = `Image ${i + 1}`; // Increment the auto number by 1
+                let reel = document.createElement("div");
+                reel.className = "reel";
     
-                        // Create an image element
-                        let img = document.createElement("img");
-                        img.src = imgSrc;
-                        img.alt = imgAlt;
-                        img.onerror = function() {
-                            // Set a default image when the actual image fails to load
-                            this.src = "riyaz.png";
-                        };
+                // Create an image element
+                let img = document.createElement("img");
+                img.src = imgSrc;
+                img.alt = imgAlt;
+                img.onerror = function() {
+                    // Set a default image when the actual image fails to load
+                    this.src = "riyaz.png";
+                };
     
-                        reel.appendChild(img);
-                        reelsContainer.appendChild(reel);
-                    }
+                reel.appendChild(img);
+                reelsContainer.appendChild(reel);
+            }
     
-                    // Create an image element for "riyaz.png" and append it to reelsContainer
-                    let riyazImg = document.createElement("img");
-                    riyazImg.src = `riyaz.png`;
-                    riyazImg.alt = "Riyaz";
-                    let riyazReel = document.createElement("div");
-                    riyazReel.className = "reel";
-                    riyazReel.appendChild(riyazImg);
-                    reelsContainer.appendChild(riyazReel);
-                })
-                .catch(error => console.error(error));
+            // Create an image element for "riyaz.png" and append it to reelsContainer
+            let riyazImg = document.createElement("img");
+            riyazImg.src = `riyaz.png`;
+            riyazImg.alt = "Riyaz";
+            let riyazReel = document.createElement("div");
+            riyazReel.className = "reel";
+            riyazReel.appendChild(riyazImg);
+            reelsContainer.appendChild(riyazReel);
         }
     
         // Call the function with folder name

@@ -40,21 +40,12 @@
             scroll-snap-align: start;
         }
         
-    /* Media Query for Smartphones */
-    @media (max-width: 768px) {
-        .reelsContainer {
-            width: 100vw;
-            margin-top: 2em;
-            overflow: auto;
-            gap: 1em;
-            scroll-snap-type: x mandatory;
-        }
-
-        .reel {
-            min-height: 50vh;
-            min-width: 100vw;
-        }
+        @media (max-width: 767px) {
+    .reelsContainer {
+        width: 90vw; /* Change width to 90vw for smartphones */
     }
+}
+
     </style>
 </head>
 <body>

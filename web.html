@@ -50,36 +50,38 @@
     </div>
 
 
-<script>
-// Function to fetch images from a folder
-function fetchImagesFromFolder(folderName, numImages) {
-    let reelsContainer = document.getElementById("reelsContainer");
-
-    // Loop to create image elements
-    for (let i = 1; i <= numImages; i++) {
+    // JavaScript
+    <script>
+    // Function to fetch images from a folder
+    function fetchImagesFromFolder(folderName, numImages) {
+      let reelsContainer = document.getElementById("reelsContainer");
+    
+      // Loop to create image elements in reverse order
+      for (let i = numImages; i >= 1; i--) {
         let imgSrc = `${folderName}/image${i}.png`;
         let imgAlt = `Image ${i}`;
         let reel = document.createElement("div");
         reel.className = "reel";
-
+    
         // Create an image element
         let img = document.createElement("img");
         img.src = imgSrc;
         img.alt = imgAlt;
         img.onerror = function() {
-            // Set a default image when the actual image fails to load
-            this.src = "riyaz.png";
+          // Set a default image when the actual image fails to load
+          this.src = "riyaz.png";
         };
-
+    
         reel.appendChild(img);
         reelsContainer.appendChild(reel);
+      }
     }
-}
-
-// Call the function with folder name and number of images
-fetchImagesFromFolder("update", 25); // Replace "update" with your actual folder name and 2 with the number of images you have
-</script>
-
+    
+    // Call the function with folder name and number of images
+    fetchImagesFromFolder("update", 25); // Replace "update" with your actual folder name and 2 with the number of images you have
+    </script>
+    
+        
 
 </body>
 </html>

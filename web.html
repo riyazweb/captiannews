@@ -87,7 +87,9 @@ function fetchImagesFromFolder(folderName, numImages) {
             let reel = document.createElement("div");
             reel.className = "reel";
             reel.appendChild(img);
-            reelsContainer.appendChild(reel);
+
+            // Insert the reel element at the top of the reelsContainer
+            reelsContainer.insertBefore(reel, reelsContainer.firstChild);
         });
 
         // Add an event listener to check if the image has an error while loading

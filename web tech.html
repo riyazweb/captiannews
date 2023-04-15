@@ -65,12 +65,13 @@
 
 
   <script>
+
 // Function to fetch images from a folder
 function fetchImagesFromFolder(folderName, numImages) {
     let reelsContainer = document.getElementById("reelsContainer");
 
     // Loop to create image elements
-    for (let i = 1; i <= numImages; i++) { // Update loop counter to start from 1
+    for (let i = numImages; i > 0; i--) {
         let imgSrc = `${folderName}/image${i}.png`;
         let imgAlt = `Image ${i}`;
 
@@ -84,8 +85,6 @@ function fetchImagesFromFolder(folderName, numImages) {
             let reel = document.createElement("div");
             reel.className = "reel";
             reel.appendChild(img);
-
-            // Insert the reel element at the end of the reelsContainer
             reelsContainer.appendChild(reel);
         });
 
@@ -97,7 +96,10 @@ function fetchImagesFromFolder(folderName, numImages) {
 }
 
 // Call the function with folder name and number of images
-fetchImagesFromFolder("techy", 25); // Replace "update" with your actual folder name and 25 with the number of images you have
+fetchImagesFromFolder("techy", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
+
+
+     // Replace "update" with your actual folder name and 25 with the number of images you have
   </script>
 
 </body>

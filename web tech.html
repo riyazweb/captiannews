@@ -65,46 +65,38 @@
 
 
   <script>
-// Function to fetch images from a folder
-function fetchImagesFromFolder(folderName, numImages) {
-    let reelsContainer = document.getElementById("reelsContainer");
-
-    // Loop to create image elements
-    for (let i = numImages; i > 0; i--) {
-        let imgSrc = `${folderName}/image${i}.png`;
-        let imgAlt = `Image ${i}`;
-
-        // Fetch the image file as a blob
-        fetch(imgSrc)
-            .then(response => {
-                if (response.ok) {
-                    return response.blob();
+       // Function to fetch images from a folder
+        function fetchImagesFromFolder(folderName, numImages) {
+            let reelsContainer = document.getElementById("reelsContainer");
+    
+            // Loop to create image elements
+            for (let i = numImages; i > 0; i--) {
+                let imgSrc = `${folderName}/image${i}.png`;
+                let imgAlt = `Image ${i}`;
+    
+                // Check if the image file exists
+                let xhr = new XMLHttpRequest();
+                xhr.open("HEAD", imgSrc, false);
+                xhr.send();
+                if (xhr.status === 200) {
+                    let reel = document.createElement("div");
+                    reel.className = "reel";
+    
+                    // Create an image element
+                    let img = document.createElement("img");
+                    img.src = imgSrc;
+                    img.alt = imgAlt;
+    
+                    reel.appendChild(img);
+                    reelsContainer.appendChild(reel);
                 } else {
-                    throw new Error(`Image ${i} does not exist.`);
+                    console.log(`Image ${i} does not exist.`); // Show message in console
                 }
-            })
-            .then(blob => {
-                // Create a blob URL for the image
-                let blobUrl = URL.createObjectURL(blob);
-
-                // Create a new image element
-                let reel = document.createElement("div");
-                reel.className = "reel";
-                let img = document.createElement("img");
-                img.src = blobUrl;
-                img.alt = imgAlt;
-
-                reel.appendChild(img);
-                reelsContainer.appendChild(reel);
-            })
-            .catch(error => {
-                console.log(error); // Show error message in console
-            });
-    }
-}
-
-// Call the function with folder name and number of images
-fetchImagesFromFolder("techy", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
+            }
+        }
+    
+        // Call the function with folder name and number of images
+        fetchImagesFromFolder("techy", 10); // Replace "techy" with your actual folder name and 25 with the number of images you have
 
     </script>
 

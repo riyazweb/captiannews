@@ -73,7 +73,7 @@ function fetchImagesFromFolder(folderName, numImages) {
     let reelsContainer = document.getElementById("reelsContainer");
 
     // Loop to create image elements
-    for (let i = numImages; i > 0; i--) {
+    for (let i = 1; i <= numImages; i++) {
         let imgSrc = `${folderName}/image${i}.png`;
         let imgAlt = `Image ${i}`;
 

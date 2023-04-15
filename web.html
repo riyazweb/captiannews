@@ -82,15 +82,23 @@ function fetchImagesFromFolder(folderName, numImages) {
         img.src = imgSrc;
         img.alt = imgAlt;
 
+        // Add an error event listener to the image element
+        img.addEventListener("error", function() {
+            console.log(`Image not available: ${imgSrc}`);
+        });
+
         // Create a div element to wrap the image
         let reel = document.createElement("div");
         reel.className = "reel";
         reel.appendChild(img);
 
-        // Append the image element to the reelsContainer
-        reelsContainer.appendChild(reel);
+        // Append the image element to the reelsContainer only if the image is loaded successfully
+        img.addEventListener("load", function() {
+            reelsContainer.appendChild(reel);
+        });
     }
 }
+
 
 // Call the function with folder name and number of images
 fetchImagesFromFolder("update", 26); // Replace "update" with your actual folder name and 7 with the number of images you have

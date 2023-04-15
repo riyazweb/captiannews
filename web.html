@@ -74,7 +74,7 @@ function fetchImagesFromFolder(folderName, numImages) {
     let reelsContainer = document.getElementById("reelsContainer");
 
     // Loop to create image elements
-    for (let i = 1; i <= numImages; i++) { // Changed loop to start from 1 and go up to numImages
+    for (let i = 1; i <= numImages; i++) {
         let imgSrc = `${folderName}/image${i}.png`;
         let imgAlt = `Image ${i}`;
 
@@ -89,8 +89,8 @@ function fetchImagesFromFolder(folderName, numImages) {
             reel.className = "reel";
             reel.appendChild(img);
 
-            // Reverse the order of image elements by prepending to the reelsContainer
-            reelsContainer.prepend(reel);
+            // Append the image element to the reelsContainer
+            reelsContainer.appendChild(reel); // Change to appendChild to add to the end of the container
         });
 
         // Add an event listener to check if the image has an error while loading
@@ -101,7 +101,7 @@ function fetchImagesFromFolder(folderName, numImages) {
 }
 
 // Call the function with folder name and number of images
-fetchImagesFromFolder("update", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
+fetchImagesFromFolder("updates", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
 
     
     </script>

@@ -65,46 +65,38 @@
 
 
   <script>
-       // Function to fetch images from a folder
-async function fetchImagesFromFolder(folderName) {
-  let reelsContainer = document.getElementById("reelsContainer");
-
-  // Fetch the folder contents
-  let response = await fetch(folderName);
-  let data = await response.text();
-  
-  // Split the contents by newline character
-  let files = data.split("\n");
-
-  // Loop through the files to create image elements
-  for (let i = files.length; i > 0; i--) {
-    let imgSrc = `${folderName}/image${i}.png`;
-    let imgAlt = `Image ${i}`;
-
-    // Check if the image file exists
-    let xhr = new XMLHttpRequest();
-    xhr.open("HEAD", imgSrc, false);
-    xhr.send();
-    if (xhr.status === 200) {
-      let reel = document.createElement("div");
-      reel.className = "reel";
-
-      // Create an image element
-      let img = document.createElement("img");
-      img.src = imgSrc;
-      img.alt = imgAlt;
-
-      reel.appendChild(img);
-      reelsContainer.appendChild(reel);
-    } else {
-      console.log(`Image ${i} does not exist.`); // Show message in console
-    }
-  }
-}
-
-// Call the function with folder name
-fetchImagesFromFolder("techy"); // Replace "update" with your actual folder name
-
+        // Function to fetch images from a folder
+        function fetchImagesFromFolder(folderName, numImages) {
+            let reelsContainer = document.getElementById("reelsContainer");
+    
+            // Loop to create image elements
+            for (let i = numImages; i > 0; i--) {
+                let imgSrc = `${folderName}/image${i}.png`;
+                let imgAlt = `Image ${i}`;
+    
+                // Check if the image file exists
+                let xhr = new XMLHttpRequest();
+                xhr.open("HEAD", imgSrc, false);
+                xhr.send();
+                if (xhr.status === 200) {
+                    let reel = document.createElement("div");
+                    reel.className = "reel";
+    
+                    // Create an image element
+                    let img = document.createElement("img");
+                    img.src = imgSrc;
+                    img.alt = imgAlt;
+    
+                    reel.appendChild(img);
+                    reelsContainer.appendChild(reel);
+                } else {
+                    console.log(`Image ${i} does not exist.`); // Show message in console
+                }
+            }
+        }
+    
+        // Call the function with folder name and number of images
+        fetchImagesFromFolder("techy", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
     </script>
 
 </body>

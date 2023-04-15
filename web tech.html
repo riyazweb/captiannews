@@ -71,7 +71,8 @@ function fetchImagesFromFolder(folderName, numImages) {
 
     // Loop to create image elements in descending order based on image number
     for (let i = numImages; i >= 1; i--) {
-        let imgSrc = `${folderName}/image${i}.png`; // Construct image source based on sequential filenames
+        let imgNumber = i.toString().padStart(2, '0'); // Convert number to string and pad with leading zeros
+        let imgSrc = `${folderName}/image${imgNumber}.png`; // Use formatted string with leading zeros
         let imgAlt = `Image ${i}`;
 
         // Create an image element
@@ -98,8 +99,7 @@ function fetchImagesFromFolder(folderName, numImages) {
 
 // Call the function with folder name and number of images
 fetchImagesFromFolder("techy", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
-// Replace "update" with your actual folder name and 25 with the number of images you have
-  </script>
+ </script>
 
 </body>
 </html>

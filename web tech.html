@@ -65,7 +65,6 @@
 
 
   <script>
-// Function to fetch images from a folder
 function fetchImagesFromFolder(folderName, numImages) {
     let reelsContainer = document.getElementById("reelsContainer");
 
@@ -80,25 +79,18 @@ function fetchImagesFromFolder(folderName, numImages) {
         img.src = imgSrc;
         img.alt = imgAlt;
 
-        // Add an event listener to check if the image is loaded successfully
-        img.addEventListener("load", function() {
-            let reel = document.createElement("div");
-            reel.className = "reel";
-            reel.appendChild(img);
+        // Create a div element to wrap the image
+        let reel = document.createElement("div");
+        reel.className = "reel";
+        reel.appendChild(img);
 
-            // Append the image element to the reelsContainer
-            reelsContainer.appendChild(reel);
-        });
-
-        // Add an event listener to check if the image has an error while loading
-        img.addEventListener("error", function() {
-            console.log(`Image ${i} does not exist.`); // Show message in console
-        });
+        // Append the image element to the reelsContainer
+        reelsContainer.appendChild(reel);
     }
 }
 
 // Call the function with folder name and number of images
-fetchImagesFromFolder("techy", 25); // Replace "techy" with your actual folder name and 25 with the number of images you have
+fetchImagesFromFolder("tech", 7); // Replace "update" with your actual folder name and 7 with the number of images you have
  </script>
 
 </body>

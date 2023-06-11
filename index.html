@@ -44,8 +44,10 @@ a {
 body {
   align-items: center;
   background: #642B73;
-  background: linear-gradient(to bottom,#0074D9 ,#ffffff );
-
+  background: url("1.jpg");
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   display: flex;
   font-family: "Open Sans", sans;
   justify-content: center;
@@ -54,14 +56,19 @@ body {
   text-align: center;
   margin: 0 20px;
 }
+h3 {
+
+  text-align: center;
+}
 
 h1 {
   color: #3e3e42;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 800;
   letter-spacing: -1px;
   margin-bottom: 30px;
   transform: translateZ(35px);
+  text-align: center;
 }
 
 h3 {
@@ -76,31 +83,33 @@ h3 {
   border-radius: 15px;
   box-shadow: 0px 10px 20px 20px rgba(0, 0, 0, 0.17);
   display: inline-block;
-  padding: 30px 35px;
-  perspective: 1800px;
+  padding: 20px;
+  perspective: 1600px;
   text-align: left;
-  transform-origin: 50% 50%;
+  transform-origin: 60% 60%;
   transform-style: preserve-3d;
   transform: rotateX(11deg) rotateY(16.5deg);
-  min-width: 595px;
+  min-width: 150px;
+  position: absolute;
+  left:50;
 }
 
 .card {
-  border-radius: 15px;
-  box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: 3px 3px 12px -3px rgba(0, 0, 0, 0.6);
   display: inline-block;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
-  perspective: 1200px;
+  perspective: 800px;
   position: relative;
   transform-style: preserve-3d;
-  transform: translatez(35px);
+  transform: translateZ(25px);
   transition: transform 200ms ease-out;
-  width: 175px;
+  width: 140px;
   text-align: center;
 }
 .card:not(:last-child) {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .card__img {
@@ -109,34 +118,46 @@ h3 {
 }
 
 .card__bg {
-  bottom: -50px;
-  left: -50px;
+  bottom: -40px;
+  left: -40px;
   position: absolute;
-  right: -50px;
-  top: -50px;
-  transform-origin: 50% 50%;
-  transform: translateZ(-50px);
+  right: -40px;
+  top: -40px;
+  transform-origin: 01% 01%;
+  transform: translateZ(-40px);
   z-index: 0;
+}
+.card.card__two {
+  width: 200px; /* Adjust the width as per your requirement */
+  height: 300px; /* Adjust the height as per your requirement */
+}
+.card.card__one {
+  width: 200px; /* Adjust the width as per your requirement */
+  height: 300px; /* Adjust the height as per your requirement */
+}
+.card.card__three {
+  width: 200px; /* Adjust the width as per your requirement */
+  height: 300px; /* Adjust the height as per your requirement */
 }
 
 .card__one .card__img {
-  top: 14px;
-  right: -10px;
-  height: 110%;
+  top: 1px;
+  right: -7px;
+  height: 100%;
 }
 .card__one .card__bg {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg") center/cover no-repeat;
 }
 .card__two .card__img {
-  top: 25px;
+  top: 20px;
 }
 .card__two .card__bg {
-  background: url("https://lh3.googleusercontent.com/fife/APg5EObVLxZYlHXztTZ9YsAvnq6DvXY9-PGzotmeQ5qzDe5jiWwJH2LrxIzvNLkPr1WOECMWu5qXxfAuuUw_iOdiPXXSzZh-yLu-S1Xaogc076bykevWOvx2agFcT-7ghSvVR7iaS0anqtHkymsC82WCnQ8bpSAmGBOtM1EN4cTPjtXIHzZIrKpz_dt06Or63gM3NhLbEnVQtMg_eDjWFOEa381A2fktRzJPTn_nR8Pg2m4mwGuZhUCLI8n20ONAIx4QYX2J74DFJJi9UFRLeGb1Jk4PGrJvv8-H1xa-6ZHyY7xPdmMuKQGSk3rRHcpT7D0vh8JzbcqXgiRQdlSFIg9uf36aVUQFQt2EkebZEzSmYL1t2ZLEl07Yge98INnJmNEn1uaUCOsbPfpI2IRAEM30GWo25MBwG3gTip7M_n-6kqA1071EEOcRZDwtJy3gKwsqtuCvcTsZRIrocfSkUX-uLmasFstOGYF05Oab0axm8Q6MQfCI7Se4Ot4WpW3M8b-yAU8F5KPCj-P5UELwC5dqgZMBErAgKdCUiKdWdW5ti0bA_UXGsKeFc-kg8Qth8v186FgOUCOyrfzmgC5dFY61gTKphgAmcBMfhvVeePTFaUIArUGPX4x19ukOLrtiPL3BvpKtn1zTln-MrQNCOlcfIxs_LkwSZnStXabgMCOSyO1_-AhDSjIGwPatwzk0G5OsXfGTLZG_KzOKrFrUXjn_DovQRyXXopKQAMVG3FmuQitCS1yHAzdS1cciaOdBdJCfAypdKWsypUlMbAiJP8MLDgDZIAVqEIMJSpL_UBdfryqyDOs46D-Rs8PbHNgGrXuE1_Q2Qgp8uo05MfcBJWPTqvmAF3RnaAsgj_HBQhzlk9OMesM9Au5p5DayVd_WnRdMpYOP4hofRxothwp_a-bBmxP-FEgFP9W1HS9j_p_3W33OUp7CiZdy4TOWMbtx8ewen84LCCQGPEh-Ltokvyo2ny13l-THLzG8nNfATnsyjQmdUq5yMqTEYK_TYMXsnVgHgvPZ6Yp5JZDxRJcqO4ouApU4ppTcda7pGB__bViqz89GKWTa2EAIZuLOab5GSgYBnfWEDx-c34y7lSrrhaLxSgVC4XkX5-QLPldk-UZajPBG4ykMy39OUlSvO81upe6dJBqM4KNkqM-oVYN4NGVPJPkq0A5ne3VcqImmyqKr2u__GMyfPEu8tZV1IysrljHghFlrkwMLmcosOldK2740nENAlN4Rvq-2X4Qb577vtMn8RD060MTk_FbAr7cSEhfxHz_xgOPUNBri0cx7c8jECBui4SEGGcXY4fhr17_7D-H4pJkgJS3mG5IL4Dj6pi-rUuE-yvdNX_NRN6xswNUawB_DjDZ5TmL30mCQQPsHGqWAqX13Hu2E8A3fTR2czGDq8w37G9Y4uhWPkxyh2i_gIiTfPdt08Yj-IICJq4FXFwRQA0kEeodG_cQ2z1zsKY4T9aFM5qtdI5QCJdJHwoPhTsnkzOIXfJwdQcD4rAuItoW3vw4gc4b7391Jf-TD00oOS5LZd2hhzVy1UKCo26YPy1qKH7hJdYyBJJdoNZpfsW_0iDABBRFjnBk5FHT6PPmk9vjJSwJdQkOBEfhIOfXr5-cyoit1lCdYudi6tt4R18OWmLHGlCUOfSn1FuGb7mqcaULys0I5HOC8veEwt940UeCMg1AHfe4yE5ri1k7_HzPQnioZXuvqEHMNy8KGKKlMU9n76zvvpdhCpPRDAvNfbJQ=w1907-h839") center/cover no-repeat;
+  background: url("https://lh3.googleusercontent.com/fife/APg5EObVLxZYlHXztTZ9YsAvnq6DvXY9-PGzotmeQ5qzDe5jiWwJH2LrxIzvNLkPr1WOECMWu5qXxfAuuUw_iOdiPXXSzZh-yLu-S1Xaogc076bykevWOvx2agFcT-7ghSvVR7iaS0anqtHkymsC82WCnQ8bpSAmGBOtM1EN4cTPjtXIHzZIrKpz_dt06Or63gM3NhLbEnVQtMg_eDjWFOEa381A2fktRzJPTn_nR8Pg2m4mwGuZhUCLI8n20ONAIx4QYX2J74DFJJi9UFRLeGb1Jk4PGrJvv8-H1xa-6ZHyY7xPdmMuKQGSk3rRHcpT7D0vh8JzbcqXgiRQdlSFIg9uf36aVUQFQt2EkebZEzSmYL1t2ZLEl07Yge98INnJmNEn1uaUCOsbPfpI2IRAEM30GWo25MBwG3gTip7M_n-6kqA1071EEOcRZDwtJy3gKwsqtuCvcTsZRIrocfSkUX-uLmasFstOGYF05O") center/cover no-repeat;
 }
 .card__three .card__img {
-  top: 5px;
-  left: -4px;
-  height: 110%;
+  top: 4px;
+  left: -2px;
+  height: 105%;
 }
 .card__three .card__bg {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg") center/cover no-repeat;
@@ -147,19 +168,18 @@ h3 {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  height: 70px;
+  height: 60px;
   justify-content: center;
   position: absolute;
   width: 100%;
   z-index: 2;
 }
-
 .card__title {
   color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 0 10px;
-  margin-bottom: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 8px;
+  margin-bottom: 2px;
 }
 
 .notice {
@@ -201,6 +221,22 @@ h3 {
   height: 30px;
 } 
 </style>
+<script>
+  // Function to generate a random number between min and max (inclusive)
+  function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Function to set a random background image
+  function setRandomBackgroundImage() {
+    var randomNumber = getRandomNumber(1, 8);
+    var imagePath = randomNumber + ".png";
+    document.body.style.backgroundImage = "url('" + imagePath + "')";
+  }
+
+  // Call the function initially to set a random background image
+  setRandomBackgroundImage();
+</script>
 <script>
   const cards = document.querySelector(".cards");
 const images = document.querySelectorAll(".card__img");
